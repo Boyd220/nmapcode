@@ -12,9 +12,9 @@ from email.mime.image import MIMEImage
 from email.mime.text import MIMEText
 
 emailfrom = "noreply@raspberrypi.com"
-emailto = "boydfranken@msn.com"
+emailto = ""
 fileToSend = "nmap-list.txt"
-username = "zld90cab@gmail.com"
+username = ""
 password = "" 
 
 try:
