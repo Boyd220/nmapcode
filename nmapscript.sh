@@ -1,6 +1,6 @@
  #!/bin/sh
-
-echo this is a test > testoutput1.txt
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+sleep 20
 
 default_if=$(ip route list | awk '/^default/ {print $5}')
 
@@ -17,12 +17,8 @@ IFS=. read -r m1 m2 m3 m4 <<< "$originalnetworkmask"
 
 networkaddress=$((i1 & m1)).$((i2 & m2)).$((i3 & m3)).$((i4 & m4))
 
-echo $networkaddress
-
 scanthis=$networkaddress/$networkmask
-
-echo $scanthis
 
 sudo nmap $scanthis -sn -oG nmap-list.txt
 
-sudo python newmailing.py 
+sudo python newmailing.py
